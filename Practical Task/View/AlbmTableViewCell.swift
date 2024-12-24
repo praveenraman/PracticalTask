@@ -40,7 +40,7 @@ class AlbmTableViewCell: UITableViewCell {
     }
     
     func loadData(albumData: AlbumData, photoData: [PhotosData]){
-        almbTitle.text = albumData.title ?? ""
+        almbTitle.text = albumData.title?.localizedCapitalized ?? ""
         self.photoData = photoData
         photoCollection.reloadData()
     }
