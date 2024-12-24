@@ -86,8 +86,9 @@ class ViewController: UIViewController {
             switch result {
             case .success(let data):
                 self.photoData.removeAll()
-                for pData in data{
-                    self.photoData.append(pData)
+                self.photoData = data
+                DispatchQueue.main.async{
+                    self.listTable.reloadData()
                 }
                 LocalDatabase().savePhotoToRealm(apiPhoto: self.photoData)
             case .failure(let error):
